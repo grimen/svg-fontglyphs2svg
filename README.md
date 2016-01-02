@@ -23,6 +23,8 @@ Intended to add support for raw SVG icons (copy to clipboard) within the excelle
 * `material`
 * `octicons`
 
+...but generic SVG conversion so should work with any icon font.
+
 
 ## Install
 
