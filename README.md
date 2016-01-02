@@ -1,7 +1,7 @@
 
 # svg-fontglyphs2svg
 
-Example of conversion of bundled icon font SVG <font-face> <glyph>s to separate SVG <path>s.
+Example of conversion of bundled icon font SVG `<font-face>` `<glyph>`s to separate SVG `<path>`s.
 
 
 ## Background
