@@ -1,0 +1,45 @@
+{
+  "name": "svg-fontglyphs2svg",
+  "description": "Example of conversion of bundled iconfont SVG <font-face> <glyph>s to separate SVG <path>s.",
+  "homepage": "https://github.com/grimen/svg-fontglyphs2svg",
+  "authors": [
+    "Jonas Grimfelt <grimen@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "iconfont",
+    "iconfonts",
+    "icon",
+    "icons",
+    "svg",
+    "SVG",
+    "font",
+    "fontface",
+    "font-face",
+    "glyph",
+    "glyphs",
+    "path",
+    "paths",
+    "convert",
+    "conversion",
+    "extract",
+    "extraction"
+  ],
+  "main": "index.js",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "octicons": "~3.3.0",
+    "Ionicons": "ionicons#~2.0.1",
+    "font-awesome": "~4.5.0",
+    "foundation-icon-fonts": "*",
+    "icomoon-bower": "icomoon#~0.1.0",
+    "material-design-icons": "~2.1.3"
+  }
+}

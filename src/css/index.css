@@ -1,0 +1,72 @@
+object {
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eee;
+    margin: 30px;
+}
+
+#debug {
+    display: none;
+}
+
+#debug i {
+    /*outline: 1px solid red;*/
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    height: 20px;
+    width: 20px;
+}
+
+#debug i:before {
+    /*font-size: 20px;*/
+    /*font-size: inherit !important; FAILS */
+}
+
+.render {
+    visibility: hidden;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+svg path {
+    display: inline-block;
+    fill: black;
+    stroke: none;
+}
+
+.render svg:hover {
+    transform: scale(4);
+    background-color: rgba(255,255,255,0.8)
+}
+
+.render svg:hover path {
+    display: inline-block;
+    fill: blue;
+    stroke: none;
+}
+
+.icon {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    line-height: 0;
+}
+
+#unicode-test svg:hover {
+    transform: scale(2);
+}

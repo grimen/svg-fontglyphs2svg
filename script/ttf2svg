@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+
+//
+// ttf2svg
+//
+// Usage:
+//
+//      `$ ttf2svg some/dir/font.ttf`
+//
+
+var inputFileName = process.argv[2]
+
+var path = require('path')
+
+try {
+    inputFileName = path.resolve(inputFileName)
+} catch (error) {
+    console.error('[ttf2svg]: ERROR - Not TTF font specified. Example: `$ ttf2svg some/dir/font.ttf`')
+    return process.exit(1)
+}
+
+console.log('[ttf2svg]: Input TTF font:', '`' + inputFileName + '`')
+
+var outputFileName = inputFileName.replace('.ttf', '.svg')
+
+var fs = require('fs')
+var b3b = require('b3b')
+var fonteditor = require('fonteditor-core')
+var isTTF = require('is-ttf')
+var prettify = require('pretty-data').pd
+
+var fontBuffer = fs.readFileSync(inputFileName)
+
+if (!isTTF(fontBuffer)) {
+    console.error('[ttf2svg]: ERROR - Not a valid TTF font!')
+    return process.exit(1)
+} else {
+    console.log('[ttf2svg]: OK - Converting TTF font to SVG font...')
+}
+
+var bufferToArrayBuffer = b3b.bufferToArrayBuffer
+var TTFReader = fonteditor.TTFReader
+var ttf2svg = fonteditor.ttf2svg
+var svg2ttfobject = fonteditor.svg2ttfobject
+
+var fontArrayBuffer = bufferToArrayBuffer(fontBuffer)
+var fontObject = new TTFReader().read(fontArrayBuffer)
+var svg = ttf2svg(fontObject)
+var ttf = svg2ttfobject(svg)
+
+svg = prettify.xml(svg)
+
+// DEBUG:
+// console.log(svg)
+
+fs.writeFileSync(outputFileName, svg, 'utf8')
+
+console.log('[ttf2svg]: OK - Successfully generated SVG font:', '`' + outputFileName + '`', '(' + fs.statSync(outputFileName).size + ' bytes)')
+
+process.exit(0)
